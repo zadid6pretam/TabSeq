@@ -1,6 +1,16 @@
 # TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering
 
-TabSeq is a novel framework for improving deep learning on tabular data using feature ordering. It incorporates clustering, multi-head attention, and a denoising autoencoder to enhance performance.
+TabSeq is a cutting-edge framework designed to bridge the gap in applying deep learning to tabular datasets, which often has feature heterogeneous and sequential characteristics. By leveraging feature ordering, TabSeq organizes features to maximize their relevance and interactions, significantly improving the model's ability to learn from tabular data.
+
+The framework incorporates:
+
+- Clustering to group features with similar characteristics.
+- Multi-Head Attention (MHA) to prioritize essential feature interactions.
+- Denoising Autoencoder (DAE) to reduce redundancy and reconstruct noisy inputs.
+
+TabSeq has demonstrated remarkable performance across various real-world datasets, outperforming traditional methods. Its modular design and adaptability make it a powerful tool for both binary and multi-class classification tasks, addressing challenges in health informatics, financial modeling, and more.
+
+Explore the potential of TabSeq and see how it transforms deep learning on tabular data.
 
 ## Files
 - **TabSeq_arxiv.pdf**: Research paper (pre-print) describing the framework.
