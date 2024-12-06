@@ -4,7 +4,7 @@ TabSeq is a cutting-edge framework designed to bridge the gap in applying deep l
 
 The framework incorporates:
 
-- Clustering to group features with similar characteristics.
+- Clustering to group features with similar characteristics in feature ordering.
 - Multi-Head Attention (MHA) to prioritize essential feature interactions.
 - Denoising Autoencoder (DAE) to reduce redundancy and reconstruct noisy inputs.
 
