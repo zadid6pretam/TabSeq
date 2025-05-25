@@ -44,7 +44,7 @@ BibTeX:
 }
 
 
-## Installation
+## 🚀 Installation
 
 You can install **TabSeq** in multiple ways depending on your use case:
 
@@ -57,6 +57,7 @@ git clone https://github.com/zadid6pretam/TabSeq.git
 cd TabSeq
 pip install -r requirements.txt
 pip install -e .
+```
 
 ---
 
@@ -64,24 +65,29 @@ pip install -e .
 
 ```bash
 pip install git+https://github.com/zadid6pretam/TabSeq.git
+```
 
 ---
 
 ### Option 3: Install in a Virtual Environment
 
+```bash
 python -m venv tabseq-env
 source tabseq-env/bin/activate  # On Windows: tabseq-env\Scripts\activate
 git clone https://github.com/zadid6pretam/TabSeq.git
 cd TabSeq
 pip install -r requirements.txt
 pip install -e .
+```
 
 ---
 
-### Option 4: Option 4: Manual Install Using setup.py
+### Option 4: Manual Install Using setup.py
 
+```bash
 git clone https://github.com/zadid6pretam/TabSeq.git
 cd TabSeq
 pip install .
+```
 
 
