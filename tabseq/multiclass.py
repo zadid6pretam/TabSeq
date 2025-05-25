@@ -12,6 +12,10 @@ from tensorflow.keras.layers import Input, Dense, Dropout, BatchNormalization, S
 from tensorflow.keras.callbacks import EarlyStopping
 import networkx as nx
 
+# -------------------------------
+# Feature Graph Construction and Ordering Utilities
+# -------------------------------
+
 def construct_graph_for_cluster(X_cluster):
     G = nx.Graph()
     for feature in X_cluster.columns:
@@ -46,6 +50,10 @@ def integrate_local_orderings_with_weights(local_orderings, weights, feature_nam
     averaged_positions = {f: p / total_weight for f, p in feature_positions.items()}
     return sorted(averaged_positions, key=averaged_positions.get)
 
+# -------------------------------
+# Multi-head Attention Layer (1D)
+# -------------------------------
+
 def multihead_attention_layer(inputs, num_heads, dk, dropout_rate=0.1):
     x = tf.expand_dims(inputs, axis=1)
     weighted_values_list = []
@@ -63,30 +71,31 @@ def multihead_attention_layer(inputs, num_heads, dk, dropout_rate=0.1):
     multihead_output = Dropout(dropout_rate)(multihead_output)
     return Dense(dk, activation='relu')(multihead_output)
 
+# -------------------------------
+# Main Training Function
+# -------------------------------
+
 def train_multiclass_model(X_train_input, X_valid_input, X_test_input, y_train, y_valid, y_test, num_classes=3):
-    # Copy input data
+    # Copy inputs
     X_train = X_train_input.copy()
     X_valid = X_valid_input.copy()
     X_test = X_test_input.copy()
 
-    # Clustering and Ordering
+    # Cluster and reorder features
     num_clusters = 5
     X_features = X_train.transpose()
-    clustering_model = KMeans(n_clusters=num_clusters, random_state=42)
-    cluster_labels = clustering_model.fit_predict(X_features)
+    cluster_labels = KMeans(n_clusters=num_clusters, random_state=42).fit_predict(X_features)
     clusters = [X_train[X_features.index[cluster_labels == cid]] for cid in range(num_clusters)]
     local_orderings = [minimize_dispersion(cluster) for cluster in clusters]
     cluster_variances = calculate_cluster_variances(X_train, cluster_labels)
     weights = assign_weights_with_randomness(cluster_variances)
-    feature_names = X_train.columns.tolist()
-    global_ordering = integrate_local_orderings_with_weights(local_orderings, weights, feature_names)
+    global_ordering = integrate_local_orderings_with_weights(local_orderings, weights, X_train.columns.tolist())
 
-    # Reorder features
     X_train = X_train[global_ordering]
     X_valid = X_valid[global_ordering]
     X_test = X_test[global_ordering]
 
-    # Model Architecture
+    # Define TabSeq model structure
     input_dim = X_train.shape[1]
     num_heads = 4
     dk = 64
@@ -95,6 +104,7 @@ def train_multiclass_model(X_train_input, X_valid_input, X_test_input, y_train, 
     input_layer = Input(shape=(input_dim,))
     attention_output = multihead_attention_layer(input_layer, num_heads, dk, dropout_rate)
 
+    # Autoencoder structure
     encoded = Dense(128, activation='relu')(attention_output)
     encoded = BatchNormalization()(encoded)
     encoded = Dropout(0.2)(encoded)
@@ -106,6 +116,7 @@ def train_multiclass_model(X_train_input, X_valid_input, X_test_input, y_train, 
     autoencoder.compile(optimizer='adam', loss='mean_squared_error')
     early_stopping_ae = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 
+    # Add noise and train autoencoder
     noise_factor = 0.1
     X_train_noisy = np.clip(X_train + noise_factor * np.random.normal(0.0, 1.0, X_train.shape), 0., 1.)
     X_valid_noisy = np.clip(X_valid + noise_factor * np.random.normal(0.0, 1.0, X_valid.shape), 0., 1.)
@@ -113,17 +124,18 @@ def train_multiclass_model(X_train_input, X_valid_input, X_test_input, y_train, 
     autoencoder.fit(X_train_noisy, X_train, epochs=50, batch_size=32,
                     validation_data=(X_valid_noisy, X_valid), callbacks=[early_stopping_ae])
 
+    # Extract latent representations
     encoder = Model(inputs=autoencoder.input, outputs=encoded)
     encoded_train = encoder.predict(X_train)
     encoded_valid = encoder.predict(X_valid)
     encoded_test = encoder.predict(X_test)
 
-    # One-hot encode targets
+    # One-hot encode labels
     y_train = to_categorical(y_train, num_classes)
     y_valid = to_categorical(y_valid, num_classes)
     y_test = to_categorical(y_test, num_classes)
 
-    # Classifier
+    # Classifier structure
     classifier = Sequential([
         Dense(128, activation='relu', input_dim=encoded_train.shape[1]),
         BatchNormalization(), Dropout(0.5),
