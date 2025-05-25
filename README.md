@@ -58,4 +58,30 @@ cd TabSeq
 pip install -r requirements.txt
 pip install -e .
 
+---
+
+### Option 2: Install via pip from GitHub (No Cloning Needed)
+
+```bash
+pip install git+https://github.com/zadid6pretam/TabSeq.git
+
+---
+
+### Option 3: Install in a Virtual Environment
+
+python -m venv tabseq-env
+source tabseq-env/bin/activate  # On Windows: tabseq-env\Scripts\activate
+git clone https://github.com/zadid6pretam/TabSeq.git
+cd TabSeq
+pip install -r requirements.txt
+pip install -e .
+
+---
+
+### Option 4: Option 4: Manual Install Using setup.py
+
+git clone https://github.com/zadid6pretam/TabSeq.git
+cd TabSeq
+pip install .
+
 
