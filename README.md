@@ -2,7 +2,8 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![ML](https://img.shields.io/badge/ML-Ensemble%20Learning-orange)
+![Task](https://img.shields.io/badge/Task-Feature%20Ordering-blueviolet)
+![Model](https://img.shields.io/badge/Model-Transformer--Autoencoder-orange)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 TabSeq is a cutting-edge framework designed to bridge the gap in applying deep learning to tabular datasets, which often has feature heterogeneous and sequential characteristics. By leveraging feature ordering, TabSeq organizes features to maximize their relevance and interactions, significantly improving the model's ability to learn from tabular data.
