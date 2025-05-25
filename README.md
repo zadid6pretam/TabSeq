@@ -30,6 +30,16 @@ Explore the potential of TabSeq and see how it transforms deep learning on tabul
 - Python 3.8+
 - numpy, pandas, scikit-learn, tensorflow, networkx
 
+## Installation
+
+You can install TabSeq by cloning the repository:
+
+```bash
+git clone https://github.com/zadid6pretam/TabSeq.git
+cd TabSeq
+pip install -r requirements.txt
+
+
 ## Citation
 Al Zadid Sultan Bin Habib, Kesheng Wang, Mary-Anne Hartley, Gianfranco Doretto, and Donald A. Adjeroh. "TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering." In International Conference on Pattern Recognition (ICPR), 2024, pp. 418–434. Springer.
 
