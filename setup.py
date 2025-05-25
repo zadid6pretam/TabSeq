@@ -11,11 +11,11 @@ setup(
     url="https://github.com/zadid6pretam/TabSeq",
     packages=find_packages(),
     install_requires=[
-        "numpy==1.24.4",
-        "pandas==2.0.3",
-        "scikit-learn==1.3.2",
-        "tensorflow==2.13.0",
-        "networkx==3.1"
+        "numpy>=1.22,<1.25",
+        "pandas>=2.0.0,<2.2",
+        "scikit-learn>=1.2,<1.4",
+        "tensorflow>=2.12,<2.14",
+        "networkx>=3.0,<3.2"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
