@@ -44,37 +44,18 @@ BibTeX:
 }
 
 
-## Installation:
+## Installation
 
-## Option 1: Clone the repository, Recommended for Development)
+You can install **TabSeq** in multiple ways depending on your use case:
 
+---
+
+### Option 1: Clone the Repository (Recommended for Development)
+
+```bash
 git clone https://github.com/zadid6pretam/TabSeq.git
 cd TabSeq
 pip install -r requirements.txt
 pip install -e .
 
-## Option 2: Install via pip from GitHub (No Cloning Needed)
-
-pip install git+https://github.com/zadid6pretam/TabSeq.git
-
-## Option 3: Install in a Virtual Environment
-
-python -m venv tabseq-env
-source tabseq-env/bin/activate  # On Windows: tabseq-env\Scripts\activate
-git clone https://github.com/zadid6pretam/TabSeq.git
-cd TabSeq
-pip install -r requirements.txt
-pip install -e .
-
-## Option 4: Manual Install Using setup.py
-
-git clone https://github.com/zadid6pretam/TabSeq.git
-cd TabSeq
-pip install .
-
-
-## Usage Example
-
-from tabseq.binary import train_binary_model
-from tabseq.multiclass import train_multiclass_model
 
