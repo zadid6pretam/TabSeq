@@ -93,6 +93,7 @@ pip install .
 
 ### Example Usage
 
+```bash
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -120,3 +121,4 @@ train_binary_model(X_train, X_valid, X_test, y_train_b, y_valid_b, y_test_b)
 
 # Run TabSeq for Multi-Class Classification
 train_multiclass_model(X_train, X_valid, X_test, y_train_m, y_valid_m, y_test_m, num_classes=3)
+```
