@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Task](https://img.shields.io/badge/Task-Feature%20Ordering-blueviolet)
+![Sequencing](https://img.shields.io/badge/Sequencing-Feature%20Ordering-blueviolet)
 ![Backbone](https://img.shields.io/badge/Backbone-Transformer--Autoencoder-orange)
 ![Model](https://img.shields.io/badge/Model-TabSeq-skyblue)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
