@@ -34,6 +34,7 @@ Explore the potential of TabSeq and see how it transforms deep learning on tabul
 Al Zadid Sultan Bin Habib, Kesheng Wang, Mary-Anne Hartley, Gianfranco Doretto, and Donald A. Adjeroh. "TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering." In International Conference on Pattern Recognition (ICPR), 2024, pp. 418–434. Springer.
 
 BibTeX:
+```bash
 @inproceedings{habib2024tabseq,
   title={TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering},
   author={Habib, Al Zadid Sultan Bin and Wang, Kesheng and Hartley, Mary-Anne and Doretto, Gianfranco and A. Adjeroh, Donald},
@@ -42,7 +43,7 @@ BibTeX:
   year={2024},
   organization={Springer}
 }
-
+```
 
 ## 🚀 Installation
 
