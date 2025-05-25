@@ -91,3 +91,32 @@ pip install .
 ```
 
 
+### Example Usage
+
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from tabseq.binary import train_binary_model
+from tabseq.multiclass import train_multiclass_model
+
+# Generate synthetic dataset
+X = np.random.rand(40, 80)                   # 40 samples, 80 features
+y_binary = np.random.randint(0, 2, 40)       # Binary labels (0 or 1)
+y_multiclass = np.random.randint(0, 3, 40)   # Multiclass labels (0, 1, 2)
+
+# Scale features
+X_scaled = pd.DataFrame(StandardScaler().fit_transform(X))
+
+# Split into train, valid, test
+X_train, X_temp, y_train_b, y_temp_b = train_test_split(X_scaled, y_binary, test_size=0.4, stratify=y_binary)
+X_valid, X_test, y_valid_b, y_test_b = train_test_split(X_temp, y_temp_b, test_size=0.5, stratify=y_temp_b)
+
+_, X_temp, y_train_m, y_temp_m = train_test_split(X_scaled, y_multiclass, test_size=0.4, stratify=y_multiclass)
+X_valid_m, X_test_m, y_valid_m, y_test_m = train_test_split(X_temp, y_temp_m, test_size=0.5, stratify=y_temp_m)
+
+# Run TabSeq for Binary Classification
+train_binary_model(X_train, X_valid, X_test, y_train_b, y_valid_b, y_test_b)
+
+# Run TabSeq for Multi-Class Classification
+train_multiclass_model(X_train, X_valid, X_test, y_train_m, y_valid_m, y_test_m, num_classes=3)
