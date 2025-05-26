@@ -170,7 +170,6 @@ train_multiclass_model(X_train, X_valid, X_test, y_train_m, y_valid_m, y_test_m,
 # ===============================================
 # TabSeq Default Configuration (Multiclass Version)
 # ===============================================
-# Author: Zadid Habib
 
 # Feature Ordering:
 # - num_clusters: 5 (KMeans clustering on transposed feature matrix)
