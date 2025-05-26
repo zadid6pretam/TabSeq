@@ -23,8 +23,8 @@ Explore the potential of TabSeq and see how it transforms deep learning on tabul
 
 ## Files
 - **TabSeq_arxiv.pdf**: Research paper (pre-print) describing the framework.
-- **TabSeq_BinaryClassification.py**: Implementation for binary classification tasks.
-- **TabSeq_MultiClassClassification.py**: Implementation for multi-class classification tasks.
+- **binary.py**: Implementation for binary classification tasks.
+- **multiclass.py**: Implementation for multi-class classification tasks.
 
 ## Requirements
 - Python 3.8+
@@ -131,4 +131,74 @@ train_binary_model(X_train, X_valid, X_test, y_train_b, y_valid_b, y_test_b)
 
 # Run TabSeq for Multi-Class Classification
 train_multiclass_model(X_train, X_valid, X_test, y_train_m, y_valid_m, y_test_m, num_classes=3)
+```
+
+### Default Parameter Values for Binary Classification
+
+```bash
+# =======================================================
+# TabSeq Default Configuration Parameters (Binary Version)
+# =======================================================
+# Feature Ordering:
+# - num_clusters: 5 (KMeans clustering is applied to transpose of feature matrix)
+# - Intra-cluster ordering: Features sorted in descending order of variance
+# - Global ordering: Integrated from local orderings using variance-based random weights
+
+# Autoencoder (Denoising with Attention):
+# - Noise: Gaussian noise with std = 0.1 added before training, clipped to [0, 1]
+# - Attention Heads: 4
+# - Attention Head Dimension (dk): 64
+# - Dropout Rate in Attention: 0.1
+# - Epochs: 50
+# - Batch Size: 32
+# - Loss Function: Mean Squared Error
+# - Optimizer: Adam
+# - EarlyStopping: patience = 5, monitor = 'val_loss', restore_best_weights = True
+
+# Classifier:
+# - Architecture: [Dense(128, relu) → BN → Dropout(0.5) → Dense(64, relu) → BN → Dropout(0.5) → Dense(1, sigmoid)]
+# - Epochs: 50
+# - Batch Size: 32
+# - Loss Function: Binary Crossentropy
+# - Metric: Accuracy
+# - EarlyStopping: patience = 5, monitor = 'val_loss', restore_best_weights = True
+```
+
+### Default Parameter Values for Multiclass Classification
+
+```bash
+# ===============================================
+# TabSeq Default Configuration (Multiclass Version)
+# ===============================================
+# Author: Zadid Habib
+
+# Feature Ordering:
+# - num_clusters: 5 (KMeans clustering on transposed feature matrix)
+# - Intra-cluster ordering: Features sorted by descending variance
+# - Global ordering: Weighted integration of local orderings based on random-scaled variances
+
+# Denoising Autoencoder with Multihead Attention:
+# - Noise: Gaussian noise with std = 0.1, clipped between [0, 1]
+# - Attention Heads: 4
+# - Head Dimension (dk): 64
+# - Dropout Rate in Attention: 0.1
+# - Encoder: Dense(128 → 64), BatchNorm, Dropout(0.2)
+# - Decoder: Dense(input_dim, sigmoid)
+# - Epochs: 50
+# - Batch Size: 32
+# - Loss Function: Mean Squared Error
+# - Optimizer: Adam
+# - EarlyStopping: patience = 5, monitor = 'val_loss'
+
+# Classifier:
+# - Architecture: [Dense(128, relu) → BN → Dropout(0.5) → Dense(64, relu) → BN → Dropout(0.5) → Dense(num_classes, softmax)]
+# - Loss Function: Categorical Crossentropy
+# - Metric: Accuracy
+# - Epochs: 50
+# - Batch Size: 32
+# - EarlyStopping: patience = 5, monitor = 'val_loss'
+
+# Evaluation:
+# - AUC: macro-average, using one-vs-rest (ovr)
+# - Classification report: includes precision, recall, F1 for each class
 ```
