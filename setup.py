@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="TabSeq",
-    version="0.1.3",
+    version="0.1.4",
     author="Zadid Habib",
     author_email="ah00069@mix.wvu.edu",
     description="TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering",
