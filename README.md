@@ -31,7 +31,9 @@ Explore the potential of TabSeq and see how it transforms deep learning on tabul
 - numpy, pandas, scikit-learn, tensorflow, networkx
 
 ## Citation
+```bash
 Al Zadid Sultan Bin Habib, Kesheng Wang, Mary-Anne Hartley, Gianfranco Doretto, and Donald A. Adjeroh. "TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering." In International Conference on Pattern Recognition (ICPR), 2024, pp. 418–434. Springer.
+```
 
 BibTeX:
 ```bash
@@ -45,7 +47,7 @@ BibTeX:
 }
 ```
 
-## 🚀 Installation
+## Installation
 
 You can install **TabSeq** in multiple ways depending on your use case:
 
@@ -91,6 +93,13 @@ cd TabSeq
 pip install .
 ```
 
+---
+
+### Option 5: Install from PyPI
+
+```bash
+pip install TabSeq
+```
 
 ### Example Usage
 
