@@ -1,6 +1,15 @@
 # TabSeq Feature Ordering
 
-This module extracts and packages the feature ordering algorithm used in TabSeq from ICPR 2024 as a standalone utility, enabling integration into any tabular deep learning pipeline.
+[![PyPI version](https://img.shields.io/pypi/v/tabseq-feature-ordering.svg)](https://pypi.org/project/tabseq-feature-ordering/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/tabseq-feature-ordering.svg)](https://pypi.org/project/tabseq-feature-ordering/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/zadid6pretam/TabSeq/python-app.yml?branch=main)](https://github.com/zadid6pretam/TabSeq/actions)
+[![GitHub Stars](https://img.shields.io/github/stars/zadid6pretam/TabSeq?style=social)](https://github.com/zadid6pretam/TabSeq)
+
+---
+
+This module extracts and packages the feature ordering algorithm used in **TabSeq (ICPR 2024)** as a standalone utility, enabling integration into any tabular deep learning pipeline.
+
 
 ## Key Features
 
@@ -64,7 +73,13 @@ MIT License © 2024 Zadid Habib
 
 If you use this module, please cite our paper:
 
-```
+Habib, Al Zadid Sultan Bin, Kesheng Wang, Mary-Anne Hartley, Gianfranco Doretto, and Donald A. Adjeroh. "TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering." In International Conference on Pattern Recognition, pp. 418-434. Cham: Springer Nature Switzerland, 2024.
+
+---
+
+###Bibtex
+
+```bash
 @inproceedings{habib2024tabseq,
   title={TabSeq: A Framework for Deep Learning on Tabular Data via Sequential Ordering},
   author={Habib, Al Zadid Sultan Bin and Wang, Kesheng and Hartley, Mary-Anne and Doretto, Gianfranco and A. Adjeroh, Donald},
