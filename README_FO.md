@@ -3,12 +3,13 @@
 [![PyPI version](https://img.shields.io/pypi/v/tabseq-feature-ordering.svg)](https://pypi.org/project/tabseq-feature-ordering/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/tabseq-feature-ordering.svg)](https://pypi.org/project/tabseq-feature-ordering/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/zadid6pretam/TabSeq/python-app.yml?branch=main)](https://github.com/zadid6pretam/TabSeq/actions)
+[![ICPR 2024 Paper](https://img.shields.io/badge/Paper-ICPR%202024-blue)](https://link.springer.com/chapter/10.1007/978-3-031-78128-5_27)
 [![GitHub Stars](https://img.shields.io/github/stars/zadid6pretam/TabSeq?style=social)](https://github.com/zadid6pretam/TabSeq)
 
 ---
 
 This module extracts and packages the feature ordering algorithm used in **TabSeq (ICPR 2024)** as a standalone utility, enabling integration into any tabular deep learning pipeline.
+
 
 
 ## Key Features
