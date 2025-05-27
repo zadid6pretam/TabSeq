@@ -60,10 +60,11 @@ from tabseq_feature_ordering import reorder_features
 # Example input
 X = pd.DataFrame(np.random.rand(40, 80), columns=[f"F{i}" for i in range(80)])
 
-# Run feature ordering
-order, X_reordered = reorder_features(X, cluster_size=5, sort_order='descending')
+# Run feature ordering (descending = high variance first)
+order, X_reordered = reorder_features(X, cluster_size=5, ascending=False)
 
-print(order[:10])  # First 10 features in the new order
+# Print the full reordered feature list
+print("Reordered Features:\n", order)
 ```
 
 ## License
