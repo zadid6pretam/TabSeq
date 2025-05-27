@@ -25,20 +25,6 @@ This module extracts and packages the feature ordering algorithm used in **TabSe
 pip install tabseq-feature-ordering
 ```
 
-## Usage
-
-```python
-from tabseq_feature_ordering import reorder_features
-
-# Inputs
-X_train = ...  # pandas DataFrame of shape (n_samples, n_features)
-cluster_size = 5
-sort_order = 'descending'  # or 'ascending'
-
-# Output
-global_ordering, X_train_reordered = reorder_features(X_train, cluster_size, sort_order)
-```
-
 ## Parameters
 
 - `X_train`: Tabular training data as `pd.DataFrame`
