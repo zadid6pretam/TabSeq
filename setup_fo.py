@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="feature-ordering-tabseq",
-    version="0.1.5",
+    version="0.1.6",
     author="Zadid Habib",
     author_email="ah00069@mix.wvu.edu",
     description="Feature Ordering Module from TabSeq (ICPR 2024)",
