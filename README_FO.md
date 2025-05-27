@@ -1,6 +1,6 @@
 # TabSeq Feature Ordering
 
-This module extracts and packages the feature ordering algorithm used in [TabSeq (ICPR 2024)]([https://pypi.org/project/TabSeq/](https://link.springer.com/chapter/10.1007/978-3-031-78128-5_27)) as a standalone utility, enabling integration into any tabular deep learning pipeline.
+This module extracts and packages the feature ordering algorithm used in TabSeq from ICPR 2024 as a standalone utility, enabling integration into any tabular deep learning pipeline.
 
 ## Key Features
 
